@@ -30,131 +30,83 @@ int lotteryGame::askUserNumbers(int *UserNumbers) {
 
     cout << "\tPlease enter your first number between 1-40: ";
     cin >> UserNumbers[0];
-    if(UserNumbers[0] < 1 || 40 < UserNumbers[0]) {
+    while(UserNumbers[0] < 1 || 40 < UserNumbers[0]) {
         cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
         cin >> UserNumbers[0];
-        if(UserNumbers[0] < 1 || 40 < UserNumbers[0]) {
-            cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
-            cin >> UserNumbers[0];
-            if(UserNumbers[0] < 1 || 40 < UserNumbers[0]) {
-                cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
-                cin >> UserNumbers[0];
-            }
-        }
     }
 
     cout << "\n\tPlease enter your second number between 1-40: ";
     cin >> UserNumbers[1];
-    if(UserNumbers[1] < 1 || 40 < UserNumbers[1]) {
+    while(UserNumbers[1] < 1 || 40 < UserNumbers[1]) {
         cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
         cin >> UserNumbers[1];
     }
-    if (UserNumbers[1] == UserNumbers[0]) {
+    while(UserNumbers[1] == UserNumbers[0]) {
         cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
         cin >> UserNumbers[1];
-        if(UserNumbers[1] < 1 || 40 < UserNumbers[1]) {
+        while(UserNumbers[1] < 1 || 40 < UserNumbers[1]) {
             cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
             cin >> UserNumbers[1];
-        }
-        if (UserNumbers[1] == UserNumbers[0]) {
-            cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
-            cin >> UserNumbers[1];
-            if(UserNumbers[1] < 1 || 40 < UserNumbers[1]) {
-                cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
-                cin >> UserNumbers[1];
-            }
         }
     }
 
     cout << "\n\tPlease enter your third number between 1-40: ";
     cin >> UserNumbers[2];
-    if(UserNumbers[2] < 1 || 40 < UserNumbers[2]) {
+    while(UserNumbers[2] < 1 || 40 < UserNumbers[2]) {
         cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
         cin >> UserNumbers[2];
     }
-    if (UserNumbers[2] == UserNumbers[0] || UserNumbers[2] == UserNumbers[1]) {
+    while(UserNumbers[2] == UserNumbers[0] || UserNumbers[2] == UserNumbers[1]) {
         cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
         cin >> UserNumbers[2];
-        if(UserNumbers[2] < 1 || 40 < UserNumbers[2]) {
+        while(UserNumbers[2] < 1 || 40 < UserNumbers[2]) {
             cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
             cin >> UserNumbers[2];
-        }
-        if (UserNumbers[2] == UserNumbers[0] || UserNumbers[2] == UserNumbers[1]) {
-            cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
-            cin >> UserNumbers[2];
-            if(UserNumbers[2] < 1 || 40 < UserNumbers[2]) {
-                cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
-                cin >> UserNumbers[2];
-            }
         }
     }
 
     cout << "\n\tPlease enter your fourth number between 1-40: ";
     cin >> UserNumbers[3];
-    if(UserNumbers[3] < 1 || 40 < UserNumbers[3]) {
+    while(UserNumbers[3] < 1 || 40 < UserNumbers[3]) {
         cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
         cin >> UserNumbers[3];
     }
-    if (UserNumbers[3] == UserNumbers[0] || UserNumbers[3] == UserNumbers[1] || UserNumbers[3] == UserNumbers[2]) {
+    while(UserNumbers[3] == UserNumbers[0] || UserNumbers[3] == UserNumbers[1] || UserNumbers[3] == UserNumbers[2]) {
         cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
         cin >> UserNumbers[3];
-        if(UserNumbers[3] < 1 || 40 < UserNumbers[3]) {
+        while(UserNumbers[3] < 1 || 40 < UserNumbers[3]) {
             cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
             cin >> UserNumbers[3];
-        }
-        if (UserNumbers[3] == UserNumbers[0] || UserNumbers[3] == UserNumbers[1] || UserNumbers[3] == UserNumbers[2]) {
-            cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
-            cin >> UserNumbers[3];
-            if(UserNumbers[3] < 1 || 40 < UserNumbers[3]) {
-                cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
-                cin >> UserNumbers[3];
-            }
         }
     }
 
     cout << "\n\tPlease enter your fifth number between 1-40: ";
     cin >> UserNumbers[4];
-    if(UserNumbers[4] < 1 || 40 < UserNumbers[4]) {
+    while(UserNumbers[4] < 1 || 40 < UserNumbers[4]) {
         cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
         cin >> UserNumbers[4];
     }
-    if (UserNumbers[4] == UserNumbers[0] || UserNumbers[4] == UserNumbers[1] || UserNumbers[4] == UserNumbers[2] || UserNumbers[4] == UserNumbers[3]) {
+    while(UserNumbers[4] == UserNumbers[0] || UserNumbers[4] == UserNumbers[1] || UserNumbers[4] == UserNumbers[2] || UserNumbers[4] == UserNumbers[3]) {
         cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
         cin >> UserNumbers[4];
-        if(UserNumbers[4] < 1 || 40 < UserNumbers[4]) {
+        while(UserNumbers[4] < 1 || 40 < UserNumbers[4]) {
             cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
             cin >> UserNumbers[4];
-        }
-        if (UserNumbers[4] == UserNumbers[0] || UserNumbers[4] == UserNumbers[1] || UserNumbers[4] == UserNumbers[2] || UserNumbers[4] == UserNumbers[3]) {
-            cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
-            cin >> UserNumbers[4];
-            if(UserNumbers[4] < 1 || 40 < UserNumbers[4]) {
-                cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
-                cin >> UserNumbers[4];
-            }
         }
     }
 
     cout << "\n\tPlease enter your sixth number between 1-40: ";
     cin >> UserNumbers[5];
-    if(UserNumbers[5] < 1 || 40 < UserNumbers[5]) {
+    while(UserNumbers[5] < 1 || 40 < UserNumbers[5]) {
         cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
         cin >> UserNumbers[5];
     }
-    if (UserNumbers[5] == UserNumbers[0] || UserNumbers[5] == UserNumbers[1] || UserNumbers[5] == UserNumbers[2] || UserNumbers[5] == UserNumbers[3] || UserNumbers[5] == UserNumbers[4]) {
+    while(UserNumbers[5] == UserNumbers[0] || UserNumbers[5] == UserNumbers[1] || UserNumbers[5] == UserNumbers[2] || UserNumbers[5] == UserNumbers[3] || UserNumbers[5] == UserNumbers[4]) {
         cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
         cin >> UserNumbers[5];
-        if(UserNumbers[5] < 1 || 40 < UserNumbers[5]) {
+        while(UserNumbers[5] < 1 || 40 < UserNumbers[5]) {
             cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
             cin >> UserNumbers[5];
-        }
-        if (UserNumbers[5] == UserNumbers[0] || UserNumbers[5] == UserNumbers[1] || UserNumbers[5] == UserNumbers[2] || UserNumbers[5] == UserNumbers[3] || UserNumbers[5] == UserNumbers[4]) {
-            cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
-            cin >> UserNumbers[5];
-            if(UserNumbers[5] < 1 || 40 < UserNumbers[5]) {
-                cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
-                cin >> UserNumbers[5];
-            }
         }
     }
 
