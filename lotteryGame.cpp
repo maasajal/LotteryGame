@@ -1,5 +1,5 @@
 #include<iostream>
-#include <string>
+#include<string>
 #include<cstdlib>
 #include<ctime>
 #include<iomanip>
@@ -17,7 +17,7 @@ class lotteryGame {
 public:
     int askUserNumbers(int UserNumbers[]);
     int getLotteryNumbers(int lotteryNumbers[]);
-    void checkNumbers(int lotteryNumbers[], int userNumbers[]);
+    void drawLottery(int lotteryNumbers[], int userNumbers[]);
     void lotteryListHeader();
     void lotteryResults(int matched);
     void playGameAgain(char *playAgain);
@@ -33,6 +33,14 @@ int lotteryGame::askUserNumbers(int *UserNumbers) {
     if(UserNumbers[0] < 1 || 40 < UserNumbers[0]) {
         cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
         cin >> UserNumbers[0];
+        if(UserNumbers[0] < 1 || 40 < UserNumbers[0]) {
+            cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
+            cin >> UserNumbers[0];
+            if(UserNumbers[0] < 1 || 40 < UserNumbers[0]) {
+                cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
+                cin >> UserNumbers[0];
+            }
+        }
     }
 
     cout << "\n\tPlease enter your second number between 1-40: ";
@@ -44,6 +52,18 @@ int lotteryGame::askUserNumbers(int *UserNumbers) {
     if (UserNumbers[1] == UserNumbers[0]) {
         cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
         cin >> UserNumbers[1];
+        if(UserNumbers[1] < 1 || 40 < UserNumbers[1]) {
+            cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
+            cin >> UserNumbers[1];
+        }
+        if (UserNumbers[1] == UserNumbers[0]) {
+            cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
+            cin >> UserNumbers[1];
+            if(UserNumbers[1] < 1 || 40 < UserNumbers[1]) {
+                cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
+                cin >> UserNumbers[1];
+            }
+        }
     }
 
     cout << "\n\tPlease enter your third number between 1-40: ";
@@ -55,6 +75,18 @@ int lotteryGame::askUserNumbers(int *UserNumbers) {
     if (UserNumbers[2] == UserNumbers[0] || UserNumbers[2] == UserNumbers[1]) {
         cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
         cin >> UserNumbers[2];
+        if(UserNumbers[2] < 1 || 40 < UserNumbers[2]) {
+            cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
+            cin >> UserNumbers[2];
+        }
+        if (UserNumbers[2] == UserNumbers[0] || UserNumbers[2] == UserNumbers[1]) {
+            cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
+            cin >> UserNumbers[2];
+            if(UserNumbers[2] < 1 || 40 < UserNumbers[2]) {
+                cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
+                cin >> UserNumbers[2];
+            }
+        }
     }
 
     cout << "\n\tPlease enter your fourth number between 1-40: ";
@@ -63,6 +95,22 @@ int lotteryGame::askUserNumbers(int *UserNumbers) {
         cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
         cin >> UserNumbers[3];
     }
+    if (UserNumbers[3] == UserNumbers[0] || UserNumbers[3] == UserNumbers[1] || UserNumbers[3] == UserNumbers[2]) {
+        cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
+        cin >> UserNumbers[3];
+        if(UserNumbers[3] < 1 || 40 < UserNumbers[3]) {
+            cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
+            cin >> UserNumbers[3];
+        }
+        if (UserNumbers[3] == UserNumbers[0] || UserNumbers[3] == UserNumbers[1] || UserNumbers[3] == UserNumbers[2]) {
+            cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
+            cin >> UserNumbers[3];
+            if(UserNumbers[3] < 1 || 40 < UserNumbers[3]) {
+                cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
+                cin >> UserNumbers[3];
+            }
+        }
+    }
 
     cout << "\n\tPlease enter your fifth number between 1-40: ";
     cin >> UserNumbers[4];
@@ -70,12 +118,44 @@ int lotteryGame::askUserNumbers(int *UserNumbers) {
         cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
         cin >> UserNumbers[4];
     }
+    if (UserNumbers[4] == UserNumbers[0] || UserNumbers[4] == UserNumbers[1] || UserNumbers[4] == UserNumbers[2] || UserNumbers[4] == UserNumbers[3]) {
+        cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
+        cin >> UserNumbers[4];
+        if(UserNumbers[4] < 1 || 40 < UserNumbers[4]) {
+            cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
+            cin >> UserNumbers[4];
+        }
+        if (UserNumbers[4] == UserNumbers[0] || UserNumbers[4] == UserNumbers[1] || UserNumbers[4] == UserNumbers[2] || UserNumbers[4] == UserNumbers[3]) {
+            cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
+            cin >> UserNumbers[4];
+            if(UserNumbers[4] < 1 || 40 < UserNumbers[4]) {
+                cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
+                cin >> UserNumbers[4];
+            }
+        }
+    }
 
     cout << "\n\tPlease enter your sixth number between 1-40: ";
     cin >> UserNumbers[5];
     if(UserNumbers[5] < 1 || 40 < UserNumbers[5]) {
         cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
         cin >> UserNumbers[5];
+    }
+    if (UserNumbers[5] == UserNumbers[0] || UserNumbers[5] == UserNumbers[1] || UserNumbers[5] == UserNumbers[2] || UserNumbers[5] == UserNumbers[3] || UserNumbers[5] == UserNumbers[4]) {
+        cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
+        cin >> UserNumbers[5];
+        if(UserNumbers[5] < 1 || 40 < UserNumbers[5]) {
+            cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
+            cin >> UserNumbers[5];
+        }
+        if (UserNumbers[5] == UserNumbers[0] || UserNumbers[5] == UserNumbers[1] || UserNumbers[5] == UserNumbers[2] || UserNumbers[5] == UserNumbers[3] || UserNumbers[5] == UserNumbers[4]) {
+            cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
+            cin >> UserNumbers[5];
+            if(UserNumbers[5] < 1 || 40 < UserNumbers[5]) {
+                cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
+                cin >> UserNumbers[5];
+            }
+        }
     }
 
     cout << endl << endl;
@@ -92,6 +172,7 @@ int lotteryGame::getLotteryNumbers(int *lotteryNumbers) {
     time(&s);
     srand(s);
    // srand (time_t(0));
+
     //cout << endl << endl;
     //cout << "\tThe numbers drawn were: ";
 
@@ -119,7 +200,7 @@ void lotteryGame::lotteryListHeader() {
 
 //  Lottery game program check userNumber and random lotteryNumber.....
 //  then print a list of user entered numbers and random drawn numbers
-void lotteryGame::checkNumbers(int *lotteryNumbers, int *UserNumbers) {
+void lotteryGame::drawLottery(int *lotteryNumbers, int *UserNumbers) {
     int matched = 0;
 
     for(int i = 0; i < 6; i++) {
@@ -205,7 +286,7 @@ int main() {
         LG.askUserNumbers(UserNumbers);
         LG.getLotteryNumbers(lotteryNumbers);
         LG.lotteryListHeader();
-        LG.checkNumbers(lotteryNumbers, UserNumbers);
+        LG.drawLottery(lotteryNumbers, UserNumbers);
         LG.playGameAgain(&playAgain);
     } while (playAgain == 'y' || playAgain == 'Y');
 
