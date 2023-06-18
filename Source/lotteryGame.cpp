@@ -27,94 +27,22 @@ public:
 //  get user numbers function. named askUserNumbers that ask the user to enter 6 different numbers between 1-40
 //  program used array variable for store user numbers
 int lotteryGame::askUserNumbers(int *UserNumbers) {
+    const int NumOfNumbers = 6;
+    const int MinNumber = 1;
+    const int MaxNumber = 40;
 
-    cout << "\tPlease enter your first number between 1-40: ";
-    cin >> UserNumbers[0];
-    while(UserNumbers[0] < 1 || 40 < UserNumbers[0]) {
-        cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
-        cin >> UserNumbers[0];
-    }
+    for (int i = 0; i < NumOfNumbers; i++) {
+        cout << "\n\tPlease enter your " << i + 1 << " number between " << MinNumber << "-" << MaxNumber << ": ";
+        cin >> UserNumbers[i];
 
-    cout << "\n\tPlease enter your second number between 1-40: ";
-    cin >> UserNumbers[1];
-    while(UserNumbers[1] < 1 || 40 < UserNumbers[1]) {
-        cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
-        cin >> UserNumbers[1];
-    }
-    while(UserNumbers[1] == UserNumbers[0]) {
-        cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
-        cin >> UserNumbers[1];
-        while(UserNumbers[1] < 1 || 40 < UserNumbers[1]) {
-            cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
-            cin >> UserNumbers[1];
-        }
-    }
-
-    cout << "\n\tPlease enter your third number between 1-40: ";
-    cin >> UserNumbers[2];
-    while(UserNumbers[2] < 1 || 40 < UserNumbers[2]) {
-        cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
-        cin >> UserNumbers[2];
-    }
-    while(UserNumbers[2] == UserNumbers[0] || UserNumbers[2] == UserNumbers[1]) {
-        cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
-        cin >> UserNumbers[2];
-        while(UserNumbers[2] < 1 || 40 < UserNumbers[2]) {
-            cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
-            cin >> UserNumbers[2];
-        }
-    }
-
-    cout << "\n\tPlease enter your fourth number between 1-40: ";
-    cin >> UserNumbers[3];
-    while(UserNumbers[3] < 1 || 40 < UserNumbers[3]) {
-        cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
-        cin >> UserNumbers[3];
-    }
-    while(UserNumbers[3] == UserNumbers[0] || UserNumbers[3] == UserNumbers[1] || UserNumbers[3] == UserNumbers[2]) {
-        cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
-        cin >> UserNumbers[3];
-        while(UserNumbers[3] < 1 || 40 < UserNumbers[3]) {
-            cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
-            cin >> UserNumbers[3];
-        }
-    }
-
-    cout << "\n\tPlease enter your fifth number between 1-40: ";
-    cin >> UserNumbers[4];
-    while(UserNumbers[4] < 1 || 40 < UserNumbers[4]) {
-        cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
-        cin >> UserNumbers[4];
-    }
-    while(UserNumbers[4] == UserNumbers[0] || UserNumbers[4] == UserNumbers[1] || UserNumbers[4] == UserNumbers[2] || UserNumbers[4] == UserNumbers[3]) {
-        cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
-        cin >> UserNumbers[4];
-        while(UserNumbers[4] < 1 || 40 < UserNumbers[4]) {
-            cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
-            cin >> UserNumbers[4];
-        }
-    }
-
-    cout << "\n\tPlease enter your sixth number between 1-40: ";
-    cin >> UserNumbers[5];
-    while(UserNumbers[5] < 1 || 40 < UserNumbers[5]) {
-        cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
-        cin >> UserNumbers[5];
-    }
-    while(UserNumbers[5] == UserNumbers[0] || UserNumbers[5] == UserNumbers[1] || UserNumbers[5] == UserNumbers[2] || UserNumbers[5] == UserNumbers[3] || UserNumbers[5] == UserNumbers[4]) {
-        cout << "\n\tYou've already entered that number. Enter another number between 1-40: ";
-        cin >> UserNumbers[5];
-        while(UserNumbers[5] < 1 || 40 < UserNumbers[5]) {
-            cout << "\n\tYour number was INVALID, Enter another number between 1-40: ";
-            cin >> UserNumbers[5];
+        while (UserNumbers[i] < MinNumber || UserNumbers[i] > MaxNumber ||
+               (i > 0 && count(UserNumbers, UserNumbers + i, UserNumbers[i]) > 0)) {
+            cout << "\n\tYour number was INVALID, Enter another number between " << MinNumber << "-" << MaxNumber << ": ";
+            cin >> UserNumbers[i];
         }
     }
 
     cout << endl << endl;
-    /*cout << "\tYour numbers were: ";
-    for(int i = 0; i < 6; i++) {
-        cout << UserNumbers[i] << " ";
-    }*/
     return 0;
 }
 
@@ -123,10 +51,6 @@ int lotteryGame::getLotteryNumbers(int *lotteryNumbers) {
     time_t s;
     time(&s);
     srand(s);
-   // srand (time_t(0));
-
-    //cout << endl << endl;
-    //cout << "\tThe numbers drawn were: ";
 
     for(int i = 0; i < 6; i++) {
         lotteryNumbers[i] = 1 + (rand() % 40);
@@ -134,7 +58,6 @@ int lotteryGame::getLotteryNumbers(int *lotteryNumbers) {
         while(lotteryNumbers[i] == lotteryNumbers[i-1]) {
             lotteryNumbers[i] = 1 + (rand() % 40);
         }
-        //cout << lotteryNumbers[i] << " ";
     }
     cout << endl;
     return 0;
@@ -159,23 +82,11 @@ void lotteryGame::drawLottery(int *lotteryNumbers, int *UserNumbers) {
         cout << setw(20) << lotteryNumbers[i] << setw(20)<< "|" << setw(17) << UserNumbers[i] << endl;
         cout << "\t---------------------------------------------------------------------" << endl;
 
-        if(UserNumbers[0] == lotteryNumbers[i]) {
-            matched++;
-        }
-        if(UserNumbers[1] == lotteryNumbers[i]) {
-            matched++;
-        }
-        if(UserNumbers[2] == lotteryNumbers[i]) {
-            matched++;
-        }
-        if(UserNumbers[3] == lotteryNumbers[i]) {
-            matched++;
-        }
-        if(UserNumbers[4] == lotteryNumbers[i]) {
-            matched++;
-        }
-        if(UserNumbers[5] == lotteryNumbers[i]) {
-            matched++;
+        for (int j = 0; j < 6; j++) {
+            if (UserNumbers[j] == lotteryNumbers[i]) {
+                matched++;
+                break;
+            }
         }
     }
     lotteryResults(matched); // lottery game result function...
@@ -185,29 +96,33 @@ void lotteryGame::drawLottery(int *lotteryNumbers, int *UserNumbers) {
 void lotteryGame::lotteryResults(int matched) {
     cout << endl;
     cout << "\t*********************************************************************" << endl;
-    if(matched == 6) {
-        cout << "\t'CONGRATULATIONS! You matched all 6 numbers. You've won $100 million.'" << endl;
+
+    switch (matched) {
+        case 6:
+            cout << "\t'CONGRATULATIONS! You matched all 6 numbers. You've won $100 million.'" << endl;
+            break;
+        case 5:
+            cout << "\t'You missed the jackpot by one. You've won $100,000.'" << endl;
+            break;
+        case 4:
+            cout << "\t'You matched 4 numbers. You've won $20,000.'" << endl;
+            break;
+        case 3:
+            cout << "\t'You matched 3 numbers. You've won $250.'" << endl;
+            break;
+        case 2:
+            cout << "\t'You matched 2 numbers. You've won $15.'" << endl;
+            break;
+        case 1:
+            cout << "\t'You only matched 1 number. You get your money back.'" << endl;
+            break;
+        default:
+            cout << "\t'You matched 0 numbers. ---Better luck next time---'" << endl;
     }
-    else if(matched == 5) {
-        cout << "\t'You missed the jackpot by one. You've won $100,000.'" << endl;
-    }
-    else if(matched == 4) {
-        cout << "\t'You matched 4 numbers. You've won $20,000.'" << endl;
-    }
-    else if(matched == 3) {
-        cout << "\t'You matched 3 numbers. You've won $250.'" << endl;
-    }
-    else if(matched == 2) {
-        cout << "\t'You matched 2 numbers. You've won $15.'" << endl;
-    }
-    else if(matched == 1) {
-        cout << "\t'You only matched 1 number. You get your money back.'" << endl;
-    }
-    else {
-        cout << "\t'You matched 0 numbers. ---Better luck next time---'" << endl;
-    }
+
     cout << "\t*********************************************************************" << endl;
 }
+
 
 //  Lottery game main function here....
 int main() {
